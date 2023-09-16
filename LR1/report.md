@@ -31,6 +31,7 @@
 - Отредактировать файл "report.md", добавив в него текст отчёта и листинг команд.
 - Повторно запушить изменения на Github.
 - Смёржить ветку "first-branch" с веткой "main" с помощью Merge Request.
+
 6. **Протокол**: 
 ``` bash
 mihail@mihail-Aspire-7520:~$ mkdir lab-works
@@ -122,5 +123,6 @@ To https://github.com/misha-misha77777mail-ru/lab-works.git
 Ветка «first-branch» отслеживает внешнюю ветку «first-branch» из «origin».
 mihail@mihail-Aspire-7520:~/lab-works$ 
 ```
+
 8. **Выводы**: Получен первый опыт работы с Git'ом, использования Merge Requests, создан удалённый репозиторий 
 для хранения отчётов по лабораторным работам.

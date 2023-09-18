@@ -1,2 +1,5 @@
 venv/
 .idea/
+CMakeLists.txt
+main.c
+cmake-build-debug/

@@ -2,26 +2,23 @@
 #include <stdlib.h>
 #include <stdio.h>
 
-int sign(int a) {
-    if (a < 0) {
-        return -1;
-    } else if (a == 0) {
-        return 0;
-    } else {
-        return 1;
-    }
-}
+#define MAX(a, b) ((a) > (b) ? (a) : (b))
+#define MIN(a, b) ((a) < (b) ? (a) : (b))
+#define SIGN(a) ((a) < 0 ? -1 : (a) > 0 ? 1 : 0)
+#define MOD(a, b) ((a) >= 0 ? (a) % (b) : ((b) + (a) - ((a) / (b) * (b))) % (b))
 
 void move(int count) {
     int i = -29;
     int j = 3;
     int l = 9;
     int result_k = -1;
-
-    for (int k = 1; k <= count; k++) {
-        i = (i * __max(i, j)) % 20 + (j * __min(i, l)) % 30 + k;
-        j = (abs(i - j + l - k) * sign(k - 10)) % 20;
-        l = (abs(i - j) * l - abs(j - l) * i + abs(i - l) * j) % 20 - k;
+    for (int k = 0; k <= count; k++) {
+        int temp_i = i;
+        int temp_j = j;
+        int temp_l = l;
+        i = MOD((temp_i * MAX(temp_i, temp_j)), 20) + MOD((temp_j * MIN(temp_i, temp_l)), 30) + k;
+        j = MOD(abs(temp_i - temp_j + temp_l - k) * SIGN(k - 10), 20);
+        l = MOD(abs(temp_i - temp_j) * temp_l - abs(temp_j - temp_l) * temp_i + abs(temp_i - temp_l) * temp_j, 20) - k;
         if (((pow((i - 20), 2) / 100) + (pow(j, 2) / 25)) <= 1 && result_k == -1 && k <= 50) {
             result_k = k;
         }

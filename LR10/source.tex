@@ -1,0 +1,69 @@
+\documentclass[8pt]{article}
+\usepackage[russian]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage[
+    a4paper,
+    left=1.1in,
+    right=1.1in,
+    top=1.1in,
+    bottom=1.1in
+]{geometry}
+\usepackage{mathtools}
+\usepackage{amsmath}
+
+\title{Page 31}
+\author{Власко М. М.}
+\date{November 2023}
+
+\begin{document}
+\pagenumbering{\textsl{31}}
+\Large
+\textsf{\textbf{Определение 7.}}
+\textit{Группы, состоящие из k элементов в каждой и отличающиеся друг от друга по крайней мере одним элементом,
+    называются сочетаниями.}
+
+Например, группы \{1, 2\}, \{1, 3\} и \{2, 3\} образуют все сочетания из натуральных чисел 1, 2, 3 по два из них.
+
+Число всех сочетаний из \textit{n} элементов по \textit{k} элементов в каждом обозначется \(C_n^k\).
+
+
+\begin{flushleft}
+   \textsc{\textbf{ТЕОРЕМА 3. }}\textit{Имеет место формула}
+\end{flushleft}
+
+\[ C_n^k = \frac{A_n^k}{P_k}, \tag{1.15}\]
+\begin{flushleft}
+   \textit{т. е.}
+\end{flushleft}
+\[ C_n^k = \frac{n(n - 1)...(n - k + 1)}{n!}. \tag{1.16}\]
+\begin{flushleft}
+   \textsc{\textbf{СЛЕДСТВИЕ. }}\textit{Справедлива формула}
+\end{flushleft}
+\[ C_n^k = \frac{n!}{k!(n - k)!}. \tag{1.17}\]
+
+\begin{flushleft}
+   \textsc{Доказательство.}
+Если в каждом сочетании из \textit{n} элементов по \textit{k} (их всего \(C_n^k\)) сделать всевозможные перестановки
+   его элементов (число таких перестановок равно \(P_k\)), то получатся размещения из \textit{n} элементов по
+   \textit{k}, причём таким способом получаются все размещения из \textit{n} элементов по \textit{k}, и притом по
+   одному разу. Поэтому \[ C_n^{kP}_k = A_n^k,\] откуда и следует формула (1.15).
+   Формула (1.16) получается из формул
+   (1.10), (1.14), (1.15).
+\end{flushleft}
+\par{Если умножить числитель и знаменатель дроби, стоящей в правой части формулы (1.16), на \((n - k)\)!, то
+получится формула (1.17).}
+\begin{flushleft}
+   \textsc{\textbf{ТЕОРЕМА 4. }}\textit{Имеет место формула}
+   \[ C_n^k = C_n^{n - k}, k = 0, 1, 2, \dots, n, \tag{1.18}\]
+\textit{где} \(C_n^0 \stackrel{\text{def}}{=} 1\).
+\end{flushleft}
+\begin{flushleft}
+   \textsc{\textsf{Доказательство.}}
+Формулу (1.18) легко получить непосредственно из определения сочетаний: если из \textit{n} элементов выбрать какую-либо
+   группу (сочетание), состоящую из \textit{k} элементов, то останется группа (сочетание) из \(n - k\) элементов, при
+   этом таким способом получаются все сочетания из \textit{n} элементов по \(n - k\) элементов и по одному разу.
+\end{flushleft}
+
+\centering
+-----------------------
+\end{document}

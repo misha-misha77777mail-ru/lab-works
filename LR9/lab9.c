@@ -5,7 +5,6 @@
 #define SIGN(a) ((a) < 0 ? -1 : (a) > 0 ? 1 : 0)
 #define MOD(a, b) ((a) >= 0 ? (a) % (b) : ((a) + (b) - ((a) / (b) * (b))) % (b))
 #define ABS(a) ((a) >= 0 ? (a) : -(a))
-#define POW(a) ((a) * (a))
 
 
 void move(int count) {
@@ -19,7 +18,7 @@ void move(int count) {
         j = MOD(ABS(temp_i - temp_j + temp_l - k) * SIGN(k - 10), 20);
         l = MOD(ABS(temp_i - temp_j) * temp_l - ABS(temp_j - temp_l) * temp_i + ABS(temp_i - temp_l) * temp_j, 20) - k;
 
-        if ((((double)POW(i - 20) / 100.0) + ((double)POW(j) / 25.0)) <= 1 && result_k == -1 && k <= 50) {
+        if ((((double)((i - 20) * (i - 20)) / 100.0) + ((double)(j * j) / 25.0)) <= 1 && result_k == -1 && k <= 50) {
             result_k = k;
         }
     }

@@ -10,7 +10,7 @@ typedef enum
     SKIP
 } State;
 
-int _break(char s) {
+int separator(char s) {
     char *m = " \t,\n";
     for (int i = 0; i < 4; i++) {
         if (s == m[i]) return 1;
@@ -31,13 +31,13 @@ int main() {
         switch (state) {
             case SKIP:
             {
-                if (_break(chr)) state = FIND;
+                if (separator(chr)) state = FIND;
             }
             break;
 
             case FIND:
             {
-                if (!_break(chr)) {
+                if (!separator(chr)) {
                     state = FIRST;
                     fcache = chr;
                 }
@@ -49,7 +49,7 @@ int main() {
                 if (((chr == '1' | chr == '0') && fcache == '0') | (chr == '0' && fcache == '1')) {
                     state = SECOND;
                     scache = chr;
-                } else if (!_break(chr)) {
+                } else if (!separator(chr)) {
                     state = SKIP;
                 } else {
                     state = FIND;
@@ -63,7 +63,7 @@ int main() {
                     state = SKIP;
                 } else if (chr == '0' | chr == '1') {
                     state = THIRD;
-                } else if (!_break(chr)) {
+                } else if (!separator(chr)) {
                     state = SKIP;
                 } else {
                     state = FIND;
@@ -75,7 +75,7 @@ int main() {
             {
                 if (chr == '0' | chr == '1') {
                     state = FOURTH;
-                } else if (!_break(chr)) {
+                } else if (!separator(chr)) {
                     state = SKIP;
                 } else {
                     state = FIND;
@@ -87,7 +87,7 @@ int main() {
             {
                if (chr == '0' | chr == '1') {
                    state = FIRST;
-               } else if (_break(chr)) {
+               } else if (separator(chr)) {
                    counter++;
                    state = FIND;
                }

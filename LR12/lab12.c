@@ -25,10 +25,9 @@ int main() {
             }
             printf("%d\n", mas[i]);
         }
-        if (!flag) {
-            printf("There are no numbers that do not occur once.");
-        }
     }
-
+    if (!flag) {
+        printf("There are no numbers that do not occur once.");
+    }
     return 0;
 }

@@ -87,6 +87,7 @@ int main() {
             {
                if (chr == '0' | chr == '1') {
                    state = FIRST;
+                   fcache = chr;
                } else if (separator(chr)) {
                    counter++;
                    state = FIND;

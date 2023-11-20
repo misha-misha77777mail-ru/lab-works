@@ -18,9 +18,8 @@ int separator(char s) {
     return 0;
 }
 
-int main() {
+int main(void) {
     int counter = 0;
-    int flag = 0;
 
     char fcache, scache;
     int chr;

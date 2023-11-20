@@ -90,6 +90,8 @@ int main() {
                } else if (separator(chr)) {
                    counter++;
                    state = FIND;
+               } else {
+                   state = SKIP;
                }
             }
         }

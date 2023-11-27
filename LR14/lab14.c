@@ -1,18 +1,18 @@
 #include <stdio.h>
 
 int main(void) {
-    int size = 0;
-    printf("Enter size: ");
-    scanf("%d", &size);
-
+    int size;
+    FILE *file = stdin;
+    fscanf(file, "%d", &size);
     int matrix[size][size];
-
-    for (int i = 0; i < size; i++) {
-        for (int j = 0; j < size; j++) {
-            scanf("%d", &matrix[i][j]);
+    int i, j;
+    for (int i = 0; i < size && !feof(file); i++) {
+        for (int j = 0; j < size && !feof(file); j++) {
+            fscanf(file, "%d", &matrix[i][j]);
         }
+        putchar('\n');
     }
-
+    fclose(file);
     printf("Entered matrix:\n");
     for (int i = 0; i < size; i++) {
         for (int j = 0; j < size; j++) {
@@ -20,7 +20,7 @@ int main(void) {
         }
         putchar('\n');
     }
-
+    printf("\n");
     for (int count = 0; count < size; count++) {
         if (count % 2 == 0) {
             for (int i = 0; i <= count; i++) {

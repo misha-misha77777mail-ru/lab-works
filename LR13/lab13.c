@@ -11,35 +11,16 @@ int separator(char s) {
 }
 
 int main(void) {
-    const unsigned int lu = 1;
-    const wchar_t a = L'б';
+    const unsigned int lu = 1, a = 1073U;
+    wchar_t *s = L"бвгджзлмнрй", *d = L"пфктшсчщхц";
+    unsigned int sonorous = 0, deaf = 0;
 
-    const unsigned int sonorous = (
-        lu << (L'б' - a) |
-        lu << (L'в' - a) |
-        lu << (L'г' - a) |
-        lu << (L'д' - a) |
-        lu << (L'ж' - a) |
-        lu << (L'з' - a) |
-        lu << (L'л' - a) |
-        lu << (L'м' - a) |
-        lu << (L'н' - a) |
-        lu << (L'р' - a) |
-        lu << (L'й' - a)
-    );
-
-    const unsigned int deaf = (
-        lu << (L'п' - a) |
-        lu << (L'ф' - a) |
-        lu << (L'к' - a) |
-        lu << (L'т' - a) |
-        lu << (L'ш' - a) |
-        lu << (L'с' - a) |
-        lu << (L'ч' - a) |
-        lu << (L'щ' - a) |
-        lu << (L'х' - a) |
-        lu << (L'ц' - a)
-    );
+    for (int i = 0; i < 11; i++) {
+        sonorous = sonorous | lu << (s[i] - a);
+    }
+    for (int i = 0; i < 10; i++) {
+        deaf = deaf | lu << (d[i] - a);
+    }
 
     unsigned int word = 0;
     int counter = 0;
@@ -47,7 +28,7 @@ int main(void) {
 
     while ((chr = getchar()) != EOF) {
         if (separator(chr) && word) {
-            if (((word & sonorous) <= 1) && (word & deaf)) {
+            if (!((word & sonorous) >> 1) && (word & deaf)) {
                 counter++;
             }
             word = 0;
@@ -56,7 +37,7 @@ int main(void) {
         }
     }
 
-    if (((word & sonorous) <= 1) && (word & deaf)) counter++;
+    if (!((word & sonorous) >> 1) && (word & deaf)) counter++;
 
     if (counter) {
         printf("\nThere are words in which all consonants are deaf.\n");

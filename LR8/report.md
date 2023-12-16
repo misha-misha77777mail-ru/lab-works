@@ -22,16 +22,16 @@
 
 6. **Листинг**:
 ```shell
-emacs lab8.c
-gcc -std=c99 -Wall -pedantic lab8.c
-gdb ./a.out
+mihail@mihail-Aspire-7520:~/temp$ emacs lab8.c
+mihail@mihail-Aspire-7520:~/temp$ gcc -std=c99 -Wall -pedantic lab8.c
+mihail@mihail-Aspire-7520:~/temp$ gdb ./a.out
 (gdb) run
 Starting program: /home/a.out gdb
 [Thread debugging using libthread_db enabled]
 Using host libthread_db library "/lib/x86_64-linux-gnu/libthread_db.so.1".
 Hello World[Inferior 1 (process 3510) exited normally]
 (gdb) Quit
-./a.out
+mihail@mihail-Aspire-7520:~/temp$ ./a.out
 Hello, word!
 ```
 Файл с исходным кодом программы на языке Си: [lab8.c](lab8.c).
